@@ -6,7 +6,7 @@ data class FormacaoModel(val nome: String, var conteudos: List<ConteudoEducacion
 
     fun matricular(usuario: UsuarioModel) {
         inscritos.add(usuario)
-        println("Aluno ${usuario.nome} inscrito na formação ${nome} de nível ${nivel.desc} e nos seguintes conteúdos:")
+        println("Aluno(a) ${usuario.nome} inscrito(a) na formação ${nome} de nível ${nivel.desc} e nos seguintes conteúdos:")
         for (conteudo in conteudos) {
             println("- ${conteudo.nome} de duração de ${conteudo.duracao} minutos.")
         }

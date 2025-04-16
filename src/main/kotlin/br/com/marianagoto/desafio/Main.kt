@@ -20,7 +20,7 @@ fun main() {
 
     val formacao = cadastrarFormacao(listOf(conteudoEducacional))
 
-    matricularAlunoFormacao(formacao)
+    iniciarMatriculas(formacao)
 }
 
 fun cadastrarConteudoEducacional(): ConteudoEducacionalModel {
@@ -39,7 +39,7 @@ fun cadastrarFormacao(conteudosEducacionais: List<ConteudoEducacionalModel>): Fo
     print("Digite o nome da formação: ")
     val nome = readln()
 
-    print("Digite o nível da formação (1 - Basico, 2 - Intermediario, 3 - Difícil): ")
+    print("Digite o nível da formação (1 - Basico, 2 - Intermediário, 3 - Difícil): ")
     val nivel = readln()
 
     val nivelEscolhido: NivelModel = when (nivel) {
@@ -67,4 +67,14 @@ fun matricularAlunoFormacao(formacao: FormacaoModel) {
     val aluno = UsuarioModel(nome)
 
     formacao.matricular(aluno)
+}
+
+fun iniciarMatriculas(formacao: FormacaoModel) {
+    var resposta: Int
+
+    do {
+        matricularAlunoFormacao(formacao)
+        print("Deseja matricular mais um aluno? (1 - Sim, 2 - Não): ")
+        resposta = readln().toIntOrNull() ?: 2
+    } while (resposta == 1)
 }
