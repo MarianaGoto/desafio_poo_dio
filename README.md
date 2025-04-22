@@ -1,63 +1,92 @@
-# 📚 Formação Kotlin - Simulador de Matrículas
+# 📚 Formação Kotlin - Desafio DIO
 
-Este repositório contém a solução de um **Desafio de Projeto** proposto pela [DIO (Digital Innovation One)](https://www.dio.me/), como parte da trilha de aprendizado *"Aprenda Kotlin com Exemplos"*.
-
-## 💡 Sobre o Projeto
-
-Neste desafio, o objetivo foi modelar um domínio de aplicação educacional com o uso da linguagem **Kotlin**, utilizando conceitos de orientação a objetos e boas práticas de codificação.
-
-O domínio simula formações técnicas oferecidas pela DIO, contendo conteúdos educacionais organizados por nível de dificuldade e permitindo a matrícula de alunos.
+Este projeto foi desenvolvido como parte do desafio proposto pela **[Digital Innovation One (DIO)](https://www.dio.me/)** com o objetivo de praticar e aplicar conceitos da linguagem **Kotlin**, incluindo **modelagem orientada a objetos**, **abstração de domínio** e boas práticas de codificação.
 
 ---
 
-## 🧩 Estrutura do Projeto
+## 🚀 Sobre o projeto
 
-### 🔷 `enum class Nivel`
-Enumeração que representa os níveis de dificuldade de uma formação:
+O domínio simula uma plataforma educacional onde:
 
-- `BASICO`
-- `INTERMEDIARIO`
-- `DIFICIL`
-
-### 🔷 `class Usuario`
-Classe que representa um aluno com apenas um atributo:
-
-- `nome`: Nome do aluno
-
-### 🔷 `data class ConteudoEducacional`
-Classe que representa um conteúdo educacional:
-
-- `nome`: Nome da aula/conteúdo
-- `duracao`: Duração do conteúdo em minutos (valor padrão: 60)
-
-### 🔷 `data class Formacao`
-Classe que representa uma formação completa:
-
-- `nome`: Nome da formação
-- `conteudos`: Lista de conteúdos educacionais
-- `nivel`: Nível de dificuldade
-- `inscritos`: Lista de alunos matriculados
-
-Métodos importantes:
-- `matricular(usuario: Usuario)`: Adiciona um aluno à formação e exibe os conteúdos da formação.
-- `getUsuarios()`: Lista todos os alunos matriculados.
-
-### 🔷 Função `menuFormacao()`
-Simula um menu de interação via terminal, onde é possível:
-
-1. Matricular um novo aluno
-2. Sair do sistema
-
-### 🔷 Função `main()`
-Ponto de entrada da aplicação, chama o `menuFormacao()`.
+- A DIO oferece **formações** com foco em stacks tecnológicas específicas;
+- Cada **formação** possui:
+    - Nome
+    - Nível (Básico, Intermediário, Difícil)
+    - Lista de **conteúdos educacionais**
+- É possível **matricular alunos** em formações e acompanhar os inscritos.
 
 ---
 
-## ▶️ Como Executar
+## 🧠 Conceitos aplicados
 
-Você pode executar este projeto diretamente no **[Kotlin Playground](https://pl.kotl.in/WcteahpyN)** ou utilizando o IntelliJ IDEA ou Android Studio com suporte ao Kotlin.
+- Organização do código com **separação em camadas de Modelos (`model/`)**
+- Uso de **enum classes** para representar níveis
+- Boas práticas de entrada e saída via terminal
+- Tratamento de entrada do usuário com `readln()` e `readlnOrNull()`
+- Uso de `exitProcess()` para controlar o fluxo da aplicação
+- Uso de listas e `mutableListOf` para gerenciamento de inscritos
 
-### Executar via terminal (usando o Kotlin instalado localmente):
+---
+
+## 📁 Estrutura do Projeto
+
+```shell
+desafio/
+│
+├── model/
+│   ├── UsuarioModel.kt
+│   ├── ConteudoEducacionalModel.kt
+│   ├── FormacaoModel.kt
+│   └── NivelModel.kt
+│
+├── test/
+│   ├── UsuarioModelTest.kt
+│   ├── ConteudoEducacionalModelTest.kt
+│   ├── FormacaoModelTest.kt
+│   └── NivelModelTest.kt
+│
+├── Main.kt
+└── README.md
+```
+
+---
+
+## 🧪 Como executar
+
+Você pode executar esse projeto usando o terminal do IntelliJ ou qualquer outro ambiente com suporte a Kotlin.
+
 ```bash
-kotlinc Main.kt -include-runtime -d formacao.jar
-java -jar formacao.jar
+# Certifique-se de estar no diretório do projeto
+$ kotlinc Main.kt -include-runtime -d formacao.jar
+$ java -jar formacao.jar
+```
+
+Ou rode diretamente pelo IntelliJ com o botão ▶️ no `main()`.
+
+---
+
+## 📝 Exemplo de uso no terminal
+
+```
+Digite o nome do conteúdo: Fundamentos de Kotlin
+Digite a duração do conteúdo em minutos (padrão: 60): 45
+Digite o nome da formação: Kotlin Experience
+Digite o nível da formação (1 - Básico, 2 - Intermediário, 3 - Difícil): 1
+Digite o nome do aluno: Mariana
+Aluno Mariana inscrito na formação Kotlin Experience...
+Deseja matricular mais um aluno? (1 - Sim, 2 - Não): 2
+```
+
+---
+
+## 💡 Ideias para evolução
+
+- Permitir múltiplos conteúdos por formação via menu
+- Interface gráfica com Compose Desktop
+
+---
+
+## 🧑‍💻 Desenvolvido por
+
+**Mariana Goto**  
+[LinkedIn](https://www.linkedin.com) | [GitHub](https://github.com/marianagoto)
